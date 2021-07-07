@@ -42,13 +42,12 @@ The next part is creating the spider. We will name our spider example.py and we 
 The source code for the spider is:
 
 ```
+# -*- coding: utf-8 -*-
 from webscrapingapi_scrapy_sdk import WebScrapingApiSpider, WebScrapingApiRequest
-
-import urllib.parse as urlparse
-from urllib.parse import parse_qs
 
 class ExampleSpider(WebScrapingApiSpider):
     name = 'example'
+    parseIndex = 0
 
     def start_requests(self):
         start_urls = [
@@ -82,10 +81,8 @@ class ExampleSpider(WebScrapingApiSpider):
             })
 
     def parse(self, response):
-        parsed_url = urlparse.urlparse(response.url)
-        page = parse_qs(parsed_url.query)['url'][0].split("/")[2:]
-        page = "-".join(page)
-        filename = f'page-{page}.html'
+        self.parseIndex += 1
+        filename = f'page-{self.parseIndex}.html'
         with open(filename, 'wb') as f:
             f.write(response.body)
 ```
