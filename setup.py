@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='webscrapingapi_scrapy_sdk',
-    version="1.0.5",
+    version="1.0.6",
     url='https://github.com/WebScrapingAPI/scrapy-sdk',
     description='WebScrapingApi Python Scrapy SDK',
     long_description=open('README.md').read(),
