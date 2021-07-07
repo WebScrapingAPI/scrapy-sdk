@@ -42,7 +42,6 @@ The next part is creating the spider. We will name our spider example.py and we 
 The source code for the spider is:
 
 ```
-# -*- coding: utf-8 -*-
 from webscrapingapi_scrapy_sdk import WebScrapingApiSpider, WebScrapingApiRequest
 
 class ExampleSpider(WebScrapingApiSpider):
